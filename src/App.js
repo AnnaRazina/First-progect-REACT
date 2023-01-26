@@ -1,6 +1,9 @@
 import React, {useState} from "react";
-import Counter from "./components/counter";
+import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
+import PostItem from "./components/PostItem"
+import "./style/App.css";
+
 
 function App() {
  const [value, setValue] = useState("текст в инпуте");
@@ -17,9 +20,14 @@ function App() {
       
       <Counter/>
       <ClassCounter/>
+      <PostItem/>
+      <PostItem/>
+      <PostItem/>
+
+    
       
     </div>
   );
-}
+};
 
 export default App;
