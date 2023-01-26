@@ -21,7 +21,7 @@ function App() {
       <Counter/>
       <ClassCounter/>
       <PostItem/>
-      <PostItem/>
+      <PostItem id="1" title="JavaScript" body="descripcion"/>
       <PostItem/>
 
     
