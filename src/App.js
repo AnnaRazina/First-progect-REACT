@@ -3,6 +3,7 @@ import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import PostItem from "./components/PostItem"
 import Post from "./components/Post"
+import PostList from "./components/PostList";
 import "./style/App.css";
 
 
@@ -26,17 +27,12 @@ function App() {
       <Counter/>
       <ClassCounter/>
 
-      <h1 style={{textAlign: "center", color: "blue"}}>
-        Список постов
-      </h1>
       <PostItem id={1} title="JavaScript" body="descripcion"/>
       <PostItem id={2} title="PHP" body="descripcion"/>
       <PostItem id={3} title="Python" body="descripcion"/>
 
-      {posts.map(post => 
-        <Post post={post} key={post.id}/>
-      )}
-
+      <PostList posts={posts}/>
+     
       
       
     </div>
