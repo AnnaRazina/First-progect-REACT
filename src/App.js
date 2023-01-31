@@ -26,18 +26,18 @@ function App() {
       <Counter/>
       <ClassCounter/>
 
+      <h1 style={{textAlign: "center", color: "blue"}}>
+        Список постов
+      </h1>
       <PostItem id={1} title="JavaScript" body="descripcion"/>
       <PostItem id={2} title="PHP" body="descripcion"/>
       <PostItem id={3} title="Python" body="descripcion"/>
 
       {posts.map(post => 
         <Post post={post} key={post.id}/>
-
       )}
 
       
-
-    
       
     </div>
   );
