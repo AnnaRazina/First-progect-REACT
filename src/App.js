@@ -20,9 +20,9 @@ function App() {
       
       <Counter/>
       <ClassCounter/>
-      <PostItem/>
-      <PostItem id="1" title="JavaScript" body="descripcion"/>
-      <PostItem/>
+      <PostItem id={1} title="JavaScript" body="descripcion"/>
+      <PostItem id={2} title="PHP" body="descripcion"/>
+      <PostItem id={3} title="Python" body="descripcion"/>
 
     
       
