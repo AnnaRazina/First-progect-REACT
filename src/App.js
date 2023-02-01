@@ -27,6 +27,7 @@ function App() {
         value = {value}
         onChange = {event => setValue(event.target.value)}
       />
+     
       
       <Counter/>
       <ClassCounter/>
@@ -37,7 +38,7 @@ function App() {
 
       <PostList posts={posts} title="Посты про JavaScript"/>
       <PostList posts={posts2} title="Посты про Python"/>
-      
+
       
     </div>
   );

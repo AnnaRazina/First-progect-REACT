@@ -1,0 +1,9 @@
+.myBtn {
+    min-width: 20px;
+    min-height: 10px;
+    padding: 5px, 15px;
+    background-color: teal;
+    font-size: 14px;
+    border: 1px solid rebeccapurple;
+    cursor: pointer;
+}
