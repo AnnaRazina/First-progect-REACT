@@ -1,6 +1,9 @@
 import React from "react";
 import Post from "./Post";
 import MyButton from "./UI/button/MyButton";
+import MyInput from "./UI/input/MyInput";
+ 
+
 const PostList = ({posts, title}) => {
 
     return ( 
@@ -13,8 +16,8 @@ const PostList = ({posts, title}) => {
           )}
 
           <form>
-            <input type="text" placeholder="Название поста"/>
-            <input type="text" placeholder="Описание поста"/>
+            <MyInput type="text" placeholder="Название поста"/>
+            <MyInput type="text" placeholder="Описание поста"/>
             <MyButton>Создать пост</MyButton>
           </form>
 
