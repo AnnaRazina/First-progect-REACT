@@ -1,10 +1,18 @@
 import React from "react";
+import { useState } from "react";
 import Post from "./Post";
 import MyButton from "./UI/button/MyButton";
 import MyInput from "./UI/input/MyInput";
  
 
 const PostList = ({posts, title}) => {
+
+
+  const [titleInput, setTitleInput] = useState("")
+
+  function AddNewPost () {
+
+  }
 
     return ( 
         <div>
@@ -16,8 +24,17 @@ const PostList = ({posts, title}) => {
           )}
 
           <form>
-            <MyInput type="text" placeholder="Название поста"/>
-            <MyInput type="text" placeholder="Описание поста"/>
+            {/*Управляемый компонент*/}
+            <MyInput 
+              value = {titleInput}
+              onChange = {event => setTitleInput(event.target.value)}
+              type="text" 
+              placeholder="Название поста"
+            />
+            <MyInput
+              type="text"
+              placeholder="Описание поста"
+            />
             <MyButton>Создать пост</MyButton>
           </form>
 
