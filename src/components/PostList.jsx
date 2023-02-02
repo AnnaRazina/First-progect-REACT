@@ -5,7 +5,7 @@ const PostList = ({posts, title}) => {
 
     return ( 
         <div>
-          <h1 style={{textAlign: "center", color: "blue", marginTop: "50px"}}>
+          <h1 style={{textAlign: "center", color: "teal", marginTop: "50px"}}>
             {title}
           </h1>
           {posts.map(post => 
