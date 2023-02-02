@@ -10,7 +10,9 @@ const PostList = ({posts, title}) => {
 
   const [titleInput, setTitleInput] = useState("")
 
-  function AddNewPost () {
+  function AddNewPost (event) {
+    event.preventDefault();
+    console.log(titleInput)
 
   }
 
@@ -35,7 +37,7 @@ const PostList = ({posts, title}) => {
               type="text"
               placeholder="Описание поста"
             />
-            <MyButton>Создать пост</MyButton>
+            <MyButton onClick={AddNewPost}>Создать пост</MyButton>
           </form>
 
         </div>
