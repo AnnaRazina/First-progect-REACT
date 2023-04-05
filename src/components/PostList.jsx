@@ -35,13 +35,15 @@ const PostList = ({posts, title}) => {
               type="text" 
               placeholder="Название поста"
             />
-            {/**Неуправляемый компонент. получаем данные с помощью хука useRef**/}
+            {/**Неуправляемый компонент. Получаем данные с помощью хука useRef**/}
             <input
               ref={bodyInputRef}
               type="text"
               placeholder="простой инпут"
             />
+            {/**Неуправляемый компонент. Получаем данные с помощью хука useRef из созданного компонента**/}
             <MyInput
+              ref={bodyInputRef}
               type="text"
               placeholder="Описание поста"
             />
