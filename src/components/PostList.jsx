@@ -8,8 +8,8 @@ const PostList = ({posts, titleList, remove}) => {
           <h1 style={{textAlign: "center", color: "teal", marginTop: "50px"}}>
             {titleList}
           </h1>
-           {posts.map((post) => 
-            <Post remove={remove} post={post} key={post.id}/>
+           {posts.map((post, index) => 
+            <Post remove={remove} number={index + 1} post={post} key={post.id}/>
           )}
         </div>
     )
