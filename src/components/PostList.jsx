@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./Post";
  
-const PostList = ({posts, titleList}) => {
+const PostList = ({posts, titleList, remove}) => {
 
     return ( 
         <div>
@@ -9,7 +9,7 @@ const PostList = ({posts, titleList}) => {
             {titleList}
           </h1>
            {posts.map((post) => 
-            <Post post={post} key={post.id}/>
+            <Post remove={remove} post={post} key={post.id}/>
           )}
         </div>
     )

@@ -17,6 +17,11 @@ function App() {
  const createPost = (newPost) =>{
   setPosts([...posts, newPost]);
  }
+ //принимает post из дочернего элемента
+ const removePost = (post) => {
+  setPosts(posts.filter(item => item.id !== post.id))
+ }
+
 
  const [posts2, setPosts2] = useState([
   {id: 1, title: "Python-1", body: "descripcion"},
@@ -44,13 +49,12 @@ function App() {
       <PostItem id={2} title="PHP" body="descripcion"/>
       <PostItem id={3} title="Python" body="descripcion"/>
 
-      <PostList posts={posts} titleList="Посты про JavaScript"/>
+      <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
       <AddPost create={createPost}/>
-      
+
       <PostList posts={posts2} titleList="Посты про Python"/>
       <AddPost create={createPost2}/>
 
-      
     </div>
   );
 };

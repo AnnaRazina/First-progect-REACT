@@ -1,7 +1,7 @@
 import React from "react";
+import MyButton from "./UI/button/MyButton";
 
 const Post = (props) => {
-
     return ( 
         <div className="post">
             <h1>Props - списком, с указанием ключа.</h1>
@@ -10,7 +10,9 @@ const Post = (props) => {
                 <p>{props.post.body}- это язык программирования.</p>
             </div>
             <div className="post__btn">
-                <button>DELETE</button>
+                <MyButton onClick={() => props.remove(props.post)}>
+                    DELETE
+                </MyButton>
             </div>
         </div>
     )
