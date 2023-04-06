@@ -3,6 +3,7 @@ import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import PostItem from "./components/PostItem"
 import PostList from "./components/PostList";
+import AddPost from "./components/AddPost";
 import "./style/App.css";
 
 
@@ -36,8 +37,10 @@ function App() {
       <PostItem id={2} title="PHP" body="descripcion"/>
       <PostItem id={3} title="Python" body="descripcion"/>
 
-      <PostList posts={posts} title="Посты про JavaScript"/>
-      <PostList posts={posts2} title="Посты про Python"/>
+      <PostList posts={posts} titleList="Посты про JavaScript"/>
+      <AddPost />
+      <PostList posts={posts2} titleList="Посты про Python"/>
+      <AddPost/>
 
       
     </div>
