@@ -14,11 +14,18 @@ function App() {
   {id: 2, title: "JavaScript-2", body: "descripcion"},
   {id: 3, title: "JavaScript-3", body: "descripcion"},
  ])
+ const createPost = (newPost) =>{
+  setPosts([...posts, newPost]);
+ }
+
  const [posts2, setPosts2] = useState([
   {id: 1, title: "Python-1", body: "descripcion"},
   {id: 2, title: "Python-2", body: "descripcion"},
   {id: 3, title: "Python-3", body: "descripcion"},
  ])
+ const createPost2 = (newPost) =>{
+  setPosts2([...posts2, newPost]);
+ }
  
   return (
     <div className="App">
@@ -38,9 +45,10 @@ function App() {
       <PostItem id={3} title="Python" body="descripcion"/>
 
       <PostList posts={posts} titleList="Посты про JavaScript"/>
-      <AddPost />
+      <AddPost create={createPost}/>
+      
       <PostList posts={posts2} titleList="Посты про Python"/>
-      <AddPost/>
+      <AddPost create={createPost2}/>
 
       
     </div>

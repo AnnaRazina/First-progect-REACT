@@ -3,17 +3,20 @@ import { useState } from "react";
 import MyButton from "./UI/button/MyButton";
 import MyInput from "./UI/input/MyInput";
 
-const AddPost = () => {
+const AddPost = ({create}) => {
   {/**Один useState для нескольких input**/}
   const [post, setPost] = useState({title: "", body: ""});
   
   function AddNewPost (event) {
     event.preventDefault();
+    if(post.title == "" || post.body == "") {
+        return
+    }
     const newPost = {
-      id: Date.now(),
-      post,
+        ...post,
+        id: Date.now(),
     };
-    console.log(newPost);
+    create(newPost);
     setPost({title: "", body: ""});
   };
   return (
