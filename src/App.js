@@ -6,6 +6,7 @@ import PostList from "./components/PostList";
 import AddPost from "./components/AddPost";
 import "./style/App.css";
 import MySelect from "./components/UI/select/MySelect";
+import MyInput from "./components/UI/input/MyInput";
 
 
 function App() {
@@ -21,9 +22,9 @@ function App() {
  const sortPosts = (sort) => {
   setSelectedSort(sort);
   setPosts([...posts].sort((a,b) => a[sort].localeCompare(b[sort])))
-  console.log(sort);
  }
 
+ const [searchQuery, setSearchQuery] = useState("");
 
  const createPost = (newPost) =>{
   setPosts([...posts, newPost]);
@@ -74,11 +75,14 @@ const removePost2 = (post) => {
             {value:"title", name: "по названию"},
             {value:"body", name: "по описанию"},
           ]}
-
-
-
         />
       </div>
+
+      <MyInput
+        value={searchQuery}
+        onChange={event => setSearchQuery(event.target.value)}
+        placeholder="поиск"
+      />
 
       {posts.length !== 0
         ? <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
