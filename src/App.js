@@ -52,8 +52,12 @@ const removePost2 = (post) => {
       <PostItem id={1} title="JavaScript" body="descripcion"/>
       <PostItem id={2} title="PHP" body="descripcion"/>
       <PostItem id={3} title="Python" body="descripcion"/>
-
-      <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
+      {posts.length !== 0
+        ? <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
+        : <h2 style = {{textAlign:"center", color: "red"}}>
+          Посты не найдены!
+        </h2>
+      }
       <AddPost create={createPost}/>
 
       <PostList remove={removePost2} posts={posts2} titleList="Посты про Python"/>
