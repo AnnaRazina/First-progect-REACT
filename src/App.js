@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useMemo, useState} from "react";
 import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import PostItem from "./components/PostItem"
@@ -18,13 +18,20 @@ function App() {
   {id: 3, title: "KK-JavaScript-3", body: "start"},
  ])
  const [selectedSort, setSelectedSort] = useState("");
+ const [searchQuery, setSearchQuery] = useState("");
+
+//хук useMemo - кеширует массив, следит за изменениями в массиве. И вызывает функцию, только если изменения произошли.
+ const sortedPosts = useMemo( () => {
+  console.log("функция работает")
+    if (selectedSort) {
+      return [...posts].sort((a,b) => a[selectedSort].localeCompare(b[selectedSort]))
+    }
+    return posts
+ }, [selectedSort, posts]);
 
  const sortPosts = (sort) => {
   setSelectedSort(sort);
-  setPosts([...posts].sort((a,b) => a[sort].localeCompare(b[sort])))
  }
-
- const [searchQuery, setSearchQuery] = useState("");
 
  const createPost = (newPost) =>{
   setPosts([...posts, newPost]);
@@ -85,7 +92,7 @@ const removePost2 = (post) => {
       />
 
       {posts.length !== 0
-        ? <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
+        ? <PostList remove={removePost} posts={sortedPosts} titleList="Посты про JavaScript"/>
         : <h2 style = {{textAlign:"center", color: "red"}}>
           Посты не найдены!
         </h2>
