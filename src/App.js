@@ -5,22 +5,33 @@ import PostItem from "./components/PostItem"
 import PostList from "./components/PostList";
 import AddPost from "./components/AddPost";
 import "./style/App.css";
+import MySelect from "./components/UI/select/MySelect";
 
 
 function App() {
  const [value, setValue] = useState("текст в инпуте");
+
  const [posts, setPosts] = useState([
-  {id: 1, title: "JavaScript-1", body: "descripcion"},
-  {id: 2, title: "JavaScript-2", body: "descripcion"},
-  {id: 3, title: "JavaScript-3", body: "descripcion"},
+  {id: 1, title: "FF-JavaScript-1", body: "end"},
+  {id: 2, title: "AA-JavaScript-2", body: "yes"},
+  {id: 3, title: "KK-JavaScript-3", body: "start"},
  ])
+ const [selectedSort, setSelectedSort] = useState("");
+
+ const sortPosts = (sort) => {
+  setSelectedSort(sort);
+  setPosts([...posts].sort((a,b) => a[sort].localeCompare(b[sort])))
+  console.log(sort);
+ }
+
+
  const createPost = (newPost) =>{
   setPosts([...posts, newPost]);
  }
  //принимает post из дочернего элемента
  const removePost = (post) => {
   setPosts(posts.filter(item => item.id !== post.id))
- }
+ };
 
 
  const [posts2, setPosts2] = useState([
@@ -52,6 +63,23 @@ const removePost2 = (post) => {
       <PostItem id={1} title="JavaScript" body="descripcion"/>
       <PostItem id={2} title="PHP" body="descripcion"/>
       <PostItem id={3} title="Python" body="descripcion"/>
+
+      <div>
+        <hr style={{margin:"20px 0"}}></hr>
+        <MySelect 
+          value={selectedSort}
+          onChange={sortPosts}
+          defaultValue="Сортировка"
+          options={[
+            {value:"title", name: "по названию"},
+            {value:"body", name: "по описанию"},
+          ]}
+
+
+
+        />
+      </div>
+
       {posts.length !== 0
         ? <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
         : <h2 style = {{textAlign:"center", color: "red"}}>
