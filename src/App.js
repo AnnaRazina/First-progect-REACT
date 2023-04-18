@@ -31,7 +31,11 @@ function App() {
  const createPost2 = (newPost) =>{
   setPosts2([...posts2, newPost]);
  }
- 
+//принимает post из дочернего элемента
+const removePost2 = (post) => {
+  setPosts2(posts2.filter(item => item.id !== post.id))
+ }
+
   return (
     <div className="App">
       <h1>{value}</h1>
@@ -52,7 +56,7 @@ function App() {
       <PostList remove={removePost} posts={posts} titleList="Посты про JavaScript"/>
       <AddPost create={createPost}/>
 
-      <PostList posts={posts2} titleList="Посты про Python"/>
+      <PostList remove={removePost2} posts={posts2} titleList="Посты про Python"/>
       <AddPost create={createPost2}/>
 
     </div>
